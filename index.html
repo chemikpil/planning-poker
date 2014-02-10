@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" manifest="cache.manifest">
+<head>
+	<meta charset="UTF-8">
+	<title>Planning poker</title>
+
+	<meta content="width=320, initial-scale=1, minimum-scale=1, maximum-scale=1" name="viewport">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="apple-mobile-web-app-title" content="Planning poker">
+	<link rel="apple-touch-icon-precomposed" href="img/icon.png">
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="shortcut icon" href="img/icon.png">
+</head>
+<body>
+	<div class="area">
+		
+		<!-- Start page -->
+		<header id="start" class="page is-active">
+			<h1>Planning<br>poker<br><i class="icon-spades"></i></h1>
+
+			<a href="#estimating">Start estimating</a>
+		</header>
+		<!-- End of start page -->
+
+		<main>
+			<!-- Estimating page -->
+			<section id="estimating" class="page clearfix">
+				<div data-value="xs" class="card"><i class="icon-spades"></i>XS<i class="icon-spades"></i></div>
+				<div data-value="s" class="card"><i class="icon-heart"></i>S<i class="icon-heart"></i></div>
+				<div data-value="m" class="card"><i class="icon-clubs"></i>M<i class="icon-clubs"></i></div>
+				<div data-value="l" class="card"><i class="icon-diamonds"></i>L<i class="icon-diamonds"></i></div>
+				<div data-value="xl" class="card"><i class="icon-spades"></i>XL<i class="icon-spades"></i></div>
+				<div data-value="?" class="card"><i class="icon-heart"></i>?<i class="icon-heart"></i></div>
+			</section>
+			<!-- End of estimating page -->
+		</main>
+	</div>
+
+	<script src="js/app.js"></script>
+</body>
+</html>
