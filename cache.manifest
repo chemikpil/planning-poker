@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2014-02-08:v0.1.4
+# 2014-02-08:v0.1.5
 
 # Explicitly cached entries
 index.html
@@ -9,9 +9,9 @@ img/icon.png
 img/startup-640x960.png
 
 # Fonts
-fonts/poker.woff
-fonts/poker.eot
-fonts/poker.ttf
-fonts/poker.svg
+fonts/poker.woff?-9bfh0z  
+fonts/poker.eot?-9bfh0z
+fonts/poker.ttf?-9bfh0z
+fonts/poker.svg?-9bfh0z
 http://themes.googleusercontent.com/static/fonts/roboto/v10/CrYjSnGjrRCn0pd9VQsnFOvvDin1pK8aKteLpeZ5c0A.woff
 http://themes.googleusercontent.com/static/fonts/roboto/v10/d-6IYplOFocCacKzxwXSOLO3LdcAZYWl9Si6vvxL-qU.woff
