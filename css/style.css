@@ -202,7 +202,8 @@ body {
 }
 
 #estimating.has-choosen {
-	margin-top: -155px;
+	margin-top: -177px;
+	background-color: red;
 }
 
 #estimating.has-choosen > .card {
@@ -214,22 +215,26 @@ body {
 	left: 0;
 	right: 0;
 	display: block;
-	width: 210px;
-	height: 310px;
+	width: 240px;
+	height: 354px;
 	margin: 0 auto;
 	float: none;
 
-	font-size: 9em;
-	line-height: 310px;
+	font-size: 13em;
+	line-height: 369px;
 	z-index: 2;
 }
 
 .card.is-active i:nth-of-type(1) {
 	top: 10px;
 	left: 10px;
+
+	font-size: .3em
 }
 
 .card.is-active i:nth-of-type(2) {
 	bottom: 10px;
 	right: 10px;
+
+	font-size: .3em
 }
