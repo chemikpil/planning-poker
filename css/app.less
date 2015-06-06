@@ -1,5 +1,9 @@
 @import "components/normalize";
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   width: 100%;
   background: #7ab737 radial-gradient(circle farthest-corner at 0 0, rgba(255, 255, 255, .2) 0%, rgba(136, 222, 43, .15) 80%, rgba(73, 125, 14, .5) 100%);
@@ -20,5 +24,80 @@ body {
   
   &.is-active {
     display: flex;
+  }
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 290px;
+  margin: 0;
+  padding: 0;
+  
+  list-style: none;
+}
+
+.card {
+  position: relative;
+  width: 75px;
+  height: 105px;
+  
+  margin: 10px;
+  padding-bottom: 140%;
+  
+  border-radius: 3px;
+  box-shadow: 1px 1px 0 rgba(0,0,0,.25), inset 1px 1px 0 #fff;
+  
+  background-color: #f6f6f6;
+  background-image: radial-gradient(center center, 150px 150px, #fff 0%, #ebebeb 100%);
+  
+  cursor: pointer;
+  
+  & > span {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    
+    color: #292b27;
+    font: 4.5rem/10.5rem 'Roboto Slab', sans-serif;
+    text-align: center;
+  }
+}
+
+.cards--small .card {
+  width: 60px;
+  height: 84px;
+  
+  & > span {
+    font-size: 3rem;
+    line-height: 8.4rem;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .cards {
+    width: 510px;
+  }
+  
+  .card {
+    width: 150px;
+    height: 210px;
+    
+    & > span {
+      font-size: 9rem;
+      line-height: 21rem;
+    }
+  }
+  
+  .cards--small .card {
+    width: 100px;
+    height: 140px;
+
+    & > span {
+      font-size: 5rem;
+      line-height: 14rem;
+    }
   }
 }
