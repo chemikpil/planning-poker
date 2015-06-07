@@ -6,9 +6,8 @@ html {
 
 body {
   width: 100%;
-  background: #7ab737 radial-gradient(circle farthest-corner at 0 0, rgba(255, 255, 255, .2) 0%, rgba(136, 222, 43, .15) 80%, rgba(73, 125, 14, .5) 100%);
-  background-size: cover;
-  background-attachment: fixed;
+  
+  background-color: #292b27;
   
   color: #fff;
 }
@@ -21,6 +20,10 @@ body {
   position: absolute;
   top: 0;
   bottom: 0;
+  
+  background: #7ab737 radial-gradient(circle farthest-corner at 0 0, rgba(255, 255, 255, .2) 0%, rgba(136, 222, 43, .15) 80%, rgba(73, 125, 14, .5) 100%);
+  background-size: cover;
+  background-attachment: fixed;
   
   &.is-active {
     display: flex;
@@ -45,7 +48,6 @@ body {
   height: 105px;
   
   margin: 10px;
-  padding-bottom: 140%;
   
   border-radius: 3px;
   box-shadow: 1px 1px 0 rgba(0,0,0,.25), inset 1px 1px 0 #fff;
@@ -76,6 +78,25 @@ body {
   }
 }
 
+.cards.has-selected {
+  & > .card { 
+    display: none;
+  } 
+  
+  & > .card.is-selected {
+    display: block;
+    width: 250px;
+    height: 340px;
+    
+    box-shadow: 2px 2px 1px rgba(0,0,0,.25), inset 1px 1px 0 #fff;
+
+    & > span {
+      font-size: 15rem;
+      line-height: 34rem;
+    }
+  }
+}
+
 @media screen and (min-width: 640px) {
   .cards {
     width: 510px;
@@ -98,6 +119,19 @@ body {
     & > span {
       font-size: 5rem;
       line-height: 14rem;
+    }
+  }
+  
+  .cards.has-selected {
+    & > .card.is-selected {
+      display: block;
+      width: 350px;
+      height: 476px;
+
+      & > span {
+        font-size: 20rem;
+        line-height: 47.6rem;
+      }
     }
   }
 }
