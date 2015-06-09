@@ -2,7 +2,8 @@ var gulp        = require('gulp');
 var watch       = require('gulp-watch');
 var less        = require('gulp-less');
 var minifyCSS   = require('gulp-minify-css');
-var imagemin   = require('gulp-imagemin');
+var prefix      = require('gulp-autoprefixer');
+var imagemin    = require('gulp-imagemin');
 var uglify      = require('gulp-uglify');
 var prefix      = require('gulp-autoprefixer');
 var clean       = require('gulp-clean');
@@ -18,6 +19,10 @@ var config = {
   js: {
     source: './js/*.js',
     dist: buildDir + 'js/'
+  },
+  fonts: {
+    source: './fonts/*.*',
+    dist: buildDir + 'fonts/'
   },
   html: {
     source: './*.html',
@@ -42,6 +47,7 @@ gulp.task('uglify', function () {
 
 gulp.task('css', function () {
   return gulp.src(config.css.main)
+          .pipe(prefix('last 2 version', 'android 2.1'))
           .pipe(less())
           .pipe(minifyCSS())
           .pipe(gulp.dest(config.css.dist));
@@ -57,6 +63,11 @@ gulp.task('copyImages', function () {
           .pipe(gulp.dest(config.images.dist));
 });
 
+gulp.task('copyFonts', function () {
+  return gulp.src(config.fonts.source)
+          .pipe(gulp.dest(config.fonts.dist));
+});
+
 gulp.task('copyHTML', function () {
   return gulp.src(config.html.source)
           .pipe(gulp.dest(config.html.dist));
@@ -67,7 +78,8 @@ gulp.task('build', ['clean'], function () {
     'uglify',
     'css',
     'copyHTML',
-    'copyImages'
+    'copyImages',
+    'copyFonts'
   ]);
 });
 
