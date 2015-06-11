@@ -1,5 +1,6 @@
 @import "components/normalize";
 @import "components/fonts";
+@import "components/animate";
 
 html {
   font-size: 62.5%;
@@ -27,6 +28,8 @@ body {
   background-attachment: fixed;
   
   z-index: 2;
+  
+  transition: all .1s ease;
   
   &.is-active {
     display: flex;
