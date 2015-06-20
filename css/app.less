@@ -31,10 +31,14 @@ body {
   z-index: 2;
   
   transition: all .1s ease;
+  
+  & > img {
+    display: none;
+  }
 }
 
 .cards {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -44,6 +48,15 @@ body {
   
   list-style: none;
 }
+
+.page[data-page="home"] img {
+  display: block;
+}
+
+.page[data-page="cards"] .cards {
+  display: flex;
+}
+
 
 .card {
   position: relative;
