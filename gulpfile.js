@@ -20,7 +20,7 @@ var config = {
     dist: buildDir + 'css/'
   },
   js: {
-    source: './js/*.js',
+    source: './js/**/*.{js,jsx}',
     main: './js/app.js',
     dist: buildDir + 'js/'
   },
@@ -44,7 +44,7 @@ gulp.task('clean', function () {
 });
 
 gulp.task('js', function () {
-  browserify({
+  return browserify({
     entries: config.js.main,
     extensions: ['.js'],
     debug: true
