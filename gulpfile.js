@@ -5,6 +5,9 @@ var minifyCSS   = require('gulp-minify-css');
 var prefix      = require('gulp-autoprefixer');
 var imagemin    = require('gulp-imagemin');
 var uglify      = require('gulp-uglify');
+var browserify  = require('browserify');
+var babelify    = require('babelify');
+var source      = require('vinyl-source-stream');
 var prefix      = require('gulp-autoprefixer');
 var clean       = require('gulp-clean');
 var browserSync = require('browser-sync');
@@ -18,6 +21,7 @@ var config = {
   },
   js: {
     source: './js/*.js',
+    main: './js/app.js',
     dist: buildDir + 'js/'
   },
   fonts: {
@@ -39,10 +43,16 @@ gulp.task('clean', function () {
     .pipe(clean({force: true}));
 });
 
-gulp.task('uglify', function () {
-  return gulp.src(config.js.source)
-          .pipe(uglify())
-          .pipe(gulp.dest(config.js.dist));
+gulp.task('js', function () {
+  browserify({
+    entries: config.js.main,
+    extensions: ['.js'],
+    debug: true
+  })
+  .transform(babelify)
+  .bundle()
+  .pipe(source('app.js'))
+  .pipe(gulp.dest(config.js.dist));
 });
 
 gulp.task('css', function () {
@@ -75,7 +85,7 @@ gulp.task('copyHTML', function () {
 
 gulp.task('build', ['clean'], function () {
   gulp.start([
-    'uglify',
+    'js',
     'css',
     'copyHTML',
     'copyImages',
@@ -85,7 +95,7 @@ gulp.task('build', ['clean'], function () {
 
 gulp.task('watch', function () {
   gulp.watch(config.css.source, ['css', browserSync.reload]);
-  gulp.watch(config.js.source, ['uglify', browserSync.reload]);
+  gulp.watch(config.js.source, ['js', browserSync.reload]);
   gulp.watch(config.html.source, ['copyHTML', browserSync.reload]);
 });
 
